@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Support for Learners Needing Help</title>
+  <style>
+    body { max-width: 42rem; margin: 2rem auto; font-family: system-ui, sans-serif; line-height: 1.5; }
+    pre, code { font-family: ui-monospace, monospace; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rawMd = document.body.textContent;
+      const html  = marked.parse(rawMd);
+      document.body.innerHTML = html;
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
+</head>
+<body>## Support for Learners Needing Help
+
+- **Pre-teaching:** Review basic math symbols and vocabulary before starting new topics. Use matching games to connect words with symbols.
+- **Step-by-Step Practice:** Guide students through simple problems before moving to more complex ones. Emphasize checking each step.
+- **Visual Aids:** Use number lines, charts, and drawings to help students understand concepts.
+
+---
+
+## Practice Worksheet
+
+**Instructions:**  
+Solve each problem. Show your work and explain your reasoning.
+
+---
+
+**1.** Solve:  
+$3x + 2 = 11$
+
+---
+
+**2.** Solve:  
+$y/4 - 1 = 5$
+
+---
+
+**3.** Word Problem:  
+A group has $24 to spend on snacks. Each snack costs $2. Write and solve an equation to find how many snacks they can buy.
+
+---
+
+## Teacher Edition
+
+**Instructions:**  
+Solve each problem and explain the steps.
+
+---
+
+**1.** Solve:  
+$3x + 2 = 11$
+- Subtract 2: $3x = 9$
+- Divide by 3: $x = 3$
+
+---
+
+**2.** Solve:  
+$y/4 - 1 = 5$
+- Add 1: $y/4 = 6$
+- Multiply by 4: $y = 24$
+
+---
+
+**3.** Word Problem:  
+A group has $24 to spend on snacks. Each snack costs $2.
+- Equation: $2s = 24$
+- Solve: $s = 12$
+
+</body>
+</html>

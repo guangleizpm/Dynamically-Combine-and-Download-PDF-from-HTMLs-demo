@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Language Support Strategies</title>
+  <style>
+    body { max-width: 42rem; margin: 2rem auto; font-family: system-ui, sans-serif; line-height: 1.5; }
+    pre, code { font-family: ui-monospace, monospace; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rawMd = document.body.textContent;
+      const html  = marked.parse(rawMd);
+      document.body.innerHTML = html;
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
+</head>
+<body>## Language Support Strategies
+
+**Beginning:**
+- Offer a glossary with images for key math terms.
+- Use sentence starters for explanations: “The answer is greater than…”
+- Pair students to match math symbols with their meanings.
+
+**Intermediate:**
+- Provide fill-in-the-blank templates for math statements.
+- Guide students to restate problems in their own words.
+
+**Advanced:**
+- Encourage students to explain their reasoning using academic language.
+- Support group discussions comparing different solution methods.
+
+**Advanced High:**
+- Challenge students to create their own math problems and explain the solutions.
+- Have students review and critique sample work for accuracy and clarity.
+</body>
+</html>

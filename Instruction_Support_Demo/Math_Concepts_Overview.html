@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Concepts Overview</title>
+  <style>
+    body { max-width: 42rem; margin: 2rem auto; font-family: system-ui, sans-serif; line-height: 1.5; }
+    pre, code { font-family: ui-monospace, monospace; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rawMd = document.body.textContent;
+      const html  = marked.parse(rawMd);
+      document.body.innerHTML = html;
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
+</head>
+<body>## Math Concepts Overview
+
+This lesson introduces students to the basics of fractions and decimals, focusing on how to compare and convert between them. Students will learn to use number lines, visual models, and real-world examples to understand the relationships between different forms of numbers. Key vocabulary includes numerator, denominator, decimal point, and equivalent values. The lesson emphasizes practical applications, such as measuring ingredients or comparing prices.
+</body>
+</html>

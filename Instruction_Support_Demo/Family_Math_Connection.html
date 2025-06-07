@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Family Math Connection</title>
+  <style>
+    body { max-width: 42rem; margin: 2rem auto; font-family: system-ui, sans-serif; line-height: 1.5; }
+    pre, code { font-family: ui-monospace, monospace; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rawMd = document.body.textContent;
+      const html  = marked.parse(rawMd);
+      document.body.innerHTML = html;
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
+</head>
+<body>## Family Math Connection
+
+Try this activity at home: Use coins or small objects to explore how many different ways you can make $1.00. Challenge your child to find combinations using different coin values. Discuss which combinations use the fewest or most coins, and why. Draw a chart or use a number line to show the solutions. This hands-on approach helps children see how math is used in everyday life and encourages creative problem-solving.
+</body>
+</html>

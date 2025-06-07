@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frequent Student Errors</title>
+  <style>
+    body { max-width: 42rem; margin: 2rem auto; font-family: system-ui, sans-serif; line-height: 1.5; }
+    pre, code { font-family: ui-monospace, monospace; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rawMd = document.body.textContent;
+      const html  = marked.parse(rawMd);
+      document.body.innerHTML = html;
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
+</head>
+<body>## Frequent Student Errors
+
+- Learners may confuse the order of operations, leading to incorrect answers. Reinforce the use of parentheses and the correct sequence for solving problems.
+- Some students think that multiplying always makes numbers bigger and dividing always makes them smaller. Use examples to show when this is not true.
+- Students may forget to check their work or to estimate answers for reasonableness. Encourage double-checking and estimation as regular habits.
+</body>
+</html>

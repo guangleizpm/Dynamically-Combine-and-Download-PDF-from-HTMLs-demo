@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Enrichment Ideas</title>
+  <style>
+    body { max-width: 42rem; margin: 2rem auto; font-family: system-ui, sans-serif; line-height: 1.5; }
+    pre, code { font-family: ui-monospace, monospace; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rawMd = document.body.textContent;
+      const html  = marked.parse(rawMd);
+      document.body.innerHTML = html;
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
+</head>
+<body>## Math Enrichment Ideas
+
+- **Math in the Real World:**
+  Have students design a simple budget for a party or event, using addition, subtraction, and multiplication to plan expenses.
+
+- **Math Poster Project:**
+  Students create posters showing different ways to represent a number (e.g., as a fraction, decimal, and percent).
+
+- **What If? Challenge:**
+  Ask students to change a rule in a math problem and predict how the answer would change. Discuss their reasoning as a class.
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Lesson Info Dashboard (Native Mockup)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f6f7fb;
+      color: #222;
+    }
+    .header {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header .left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .header .logo {
+      width: 32px;
+      height: 32px;
+      background: #003366;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: 12px;
+    }
+    .header .nav {
+      display: flex;
+      gap: 18px;
+      font-size: 1rem;
+    }
+    .header .nav span {
+      cursor: pointer;
+    }
+    .header .right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .header .icon {
+      width: 28px;
+      height: 28px;
+      background: #eee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .sidebar {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 72px;
+      height: calc(100vh - 56px);
+      background: #fff;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 32px;
+      z-index: 5;
+    }
+    .sidebar .side-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 24px;
+      background: #f2f2f2;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #888;
+      cursor: pointer;
+    }
+    .main {
+      margin-left: 88px;
+      padding: 32px 40px 40px 40px;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+    }
+    .main-content {
+      flex: 2 1 0;
+      min-width: 340px;
+    }
+    .right-panel {
+      flex: 1 1 0;
+      min-width: 260px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    .breadcrumbs {
+      font-size: 0.95rem;
+      color: #888;
+      margin-bottom: 18px;
+    }
+    .breadcrumbs span {
+      color: #003366;
+      cursor: pointer;
+    }
+    .unit-title {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .lesson-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .lesson-title::before {
+      content: '\1F4D6';
+      font-size: 1.3rem;
+      color: #003366;
+    }
+    .lesson-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+    .lesson-meta .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1rem;
+      color: #444;
+    }
+    .lesson-meta .meta-item .dot {
+      width: 7px;
+      height: 7px;
+      background: #003366;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .lesson-info {
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+    .lesson-info a {
+      color: #003366;
+      text-decoration: underline;
+      margin-right: 12px;
+    }
+    .objectives {
+      margin-bottom: 24px;
+    }
+    .objectives-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #003366;
+    }
+    .objectives-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .objectives-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .objectives-list li::before {
+      content: '\2714';
+      color: #2ecc40;
+      font-size: 1.1rem;
+    }
+    .activities-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #003366;
+    }
+    .activities-list {
+      background: #fffbe6;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      margin-bottom: 32px;
+    }
+    .activities-list .activity {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .circled-area {
+      width: 100%;
+      min-width: 220px;
+      max-width: 420px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 24px 20px;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      color: #222;
+      font-size: 1rem;
+    }
+    @media (max-width: 900px) {
+      .main { flex-direction: column; gap: 0; }
+      .right-panel { justify-content: center; margin-top: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="left">
+      <div class="logo">M</div>
+      <div class="nav">
+        <span>Home</span>
+        <span>Classes ▼</span>
+        <span>Resources ▼</span>
+        <span>More ▼</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="icon">🔍</div>
+      <div class="icon">✉️</div>
+      <div class="icon">U</div>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="side-icon">☰</div>
+    <div class="side-icon">📄</div>
+    <div class="side-icon">⚙️</div>
+    <div class="side-icon">📚</div>
+  </div>
+  <div class="main">
+    <div class="main-content">
+      <div class="breadcrumbs">
+        <span>Dashboard</span> &gt; <span>Class: Math Explorers</span> &gt; <span>Section: Spring 2025</span>
+      </div>
+      <div class="unit-title">Unit: Numbers in Our World</div>
+      <div class="lesson-title">Lesson: Everyday Math Adventures</div>
+      <div class="lesson-meta">
+        <div class="meta-item">Activities <span class="dot"></span> 5</div>
+        <div class="meta-item">⏱️ 45 min</div>
+      </div>
+      <div class="lesson-info">
+        <div><strong>Learning Standards:</strong> Not specified</div>
+        <div><strong>Materials Needed:</strong> Paper, pencil, coins</div>
+        <div><strong>Handouts:</strong> <a href="#">Student Copy</a> <a href="#">Teacher Copy</a></div>
+        <div><strong>Extra Resources:</strong> None</div>
+      </div>
+      <div class="objectives">
+        <div class="objectives-title">Learning Goals:</div>
+        <ul class="objectives-list">
+          <li>Recognize how numbers are used in daily life.</li>
+          <li>Practice basic math skills through real-world examples.</li>
+          <li>Work together to solve simple problems.</li>
+        </ul>
+      </div>
+      <div class="activities-title">Sample Activities</div>
+      <div class="activities-list">
+        <div class="activity">Warm-Up: Number Hunt <span style="color:#888; font-size:0.95em;">5 mins</span></div>
+        <div class="activity">Group Challenge: Grocery Math <span style="color:#888; font-size:0.95em;">15 mins</span></div>
+        <div class="activity">Discussion: Where Do We Use Math? <span style="color:#888; font-size:0.95em;">10 mins</span></div>
+        <div class="activity">Worksheet Practice <span style="color:#888; font-size:0.95em;">10 mins</span></div>
+        <div class="activity">Wrap-Up & Reflection <span style="color:#888; font-size:0.95em;">5 mins</span></div>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="circled-area">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <span style="font-size:1.13rem; color:#222; font-weight:bold;">Teacher Support</span>
+          <a href="#" id="openAllTeacherSupport" style="font-size:0.98rem; color:#1a3dc1; text-decoration:underline; font-weight:500; margin-left:8px;">Download All</a>
+        </div>
+        <ul style="list-style:none; padding:0; margin:0; text-align:left;">
+          <li style="padding:10px 0; border-top:1px solid #ececec;">
+            <a href="http://localhost:8000/Instruction_Support_Demo/Family_Math_Connection.html" target="_blank" rel="noopener" style="color:#1a3dc1; text-decoration:underline; font-weight:500;">Family Math Connection</a>
+          </li>
+          <li style="padding:10px 0; border-top:1px solid #ececec;">
+            <a href="http://localhost:8000/Instruction_Support_Demo/Math_Concepts_Overview.html" target="_blank" rel="noopener" style="color:#1a3dc1; text-decoration:underline; font-weight:500;">Math Concepts Overview</a>
+          </li>
+          <li style="padding:10px 0; border-top:1px solid #ececec;">
+            <a href="http://localhost:8000/Instruction_Support_Demo/Frequent_Student_Errors.html" target="_blank" rel="noopener" style="color:#1a3dc1; text-decoration:underline; font-weight:500;">Frequent Student Errors</a>
+          </li>
+          <li style="padding:10px 0; border-top:1px solid #ececec;">
+            <a href="http://localhost:8000/Instruction_Support_Demo/Language_Support_Strategies.html" target="_blank" rel="noopener" style="color:#1a3dc1; text-decoration:underline; font-weight:500;">Language Support Strategies</a>
+          </li>
+          <li style="padding:10px 0; border-top:1px solid #ececec;">
+            <a href="http://localhost:8000/Instruction_Support_Demo/Math_Enrichment_Ideas.html" target="_blank" rel="noopener" style="color:#1a3dc1; text-decoration:underline; font-weight:500;">Math Enrichment Ideas</a>
+          </li>
+          <li style="padding:10px 0; border-top:1px solid #ececec; border-bottom:1px solid #ececec;">
+            <a href="http://localhost:8000/Instruction_Support_Demo/Support_for_Learners_Needing_Help.html" target="_blank" rel="noopener" style="color:#1a3dc1; text-decoration:underline; font-weight:500;">Support for Learners Needing Help</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    // List of Teacher Support HTML files in order
+    const teacherSupportFiles = [
+      'http://localhost:8000/Instruction_Support_Demo/Family_Math_Connection.html',
+      'http://localhost:8000/Instruction_Support_Demo/Math_Concepts_Overview.html',
+      'http://localhost:8000/Instruction_Support_Demo/Frequent_Student_Errors.html',
+      'http://localhost:8000/Instruction_Support_Demo/Language_Support_Strategies.html',
+      'http://localhost:8000/Instruction_Support_Demo/Math_Enrichment_Ideas.html',
+      'http://localhost:8000/Instruction_Support_Demo/Support_for_Learners_Needing_Help.html'
+    ];
+
+    function openAllTeacherSupportTabs() {
+      for (let i = 0; i < teacherSupportFiles.length; i++) {
+        window.open(teacherSupportFiles[i], '_blank');
+      }
+    }
+
+    document.getElementById('openAllTeacherSupport').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.open('http://localhost:8001/download-teacher-support-pdf', '_blank');
+    });
+  </script>
+</body>
+</html> 
